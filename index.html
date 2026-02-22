@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>OAS OMR Marker (45Q) — GitHub Pages</title>
+  <meta name="description" content="Client-side OMR for a custom OAS layout. Upload PDFs or process a folder via manifest.json. Outputs CSV + annotated PDF." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <div class="dot"></div>
+      <div>
+        <div class="h1">OAS OMR Marker</div>
+        <div class="sub">Client-side (no server). 45 questions (Q1–40 + Q41–45). CSV + annotated PDF.</div>
+      </div>
+    </div>
+    <a class="pill" href="data/manifest.json" target="_blank" rel="noreferrer">manifest.json</a>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h2>1) Inputs</h2>
+
+      <div class="grid">
+        <div class="field">
+          <label>Template (blank OAS, 2 pages)</label>
+          <div class="row">
+            <button id="btnLoadTemplateFromManifest" class="ghost">Load from manifest</button>
+            <input id="fileTemplate" type="file" accept="application/pdf" />
+          </div>
+          <div class="hint">Best practice: use a clean blank template scan. Default is <code>data/template.pdf</code> if provided.</div>
+        </div>
+
+        <div class="field">
+          <label>Teacher key (2 pages, correct answers shaded)</label>
+          <div class="row">
+            <button id="btnLoadKeyFromManifest" class="ghost">Load from manifest</button>
+            <input id="fileKey" type="file" accept="application/pdf" />
+          </div>
+          <div class="hint">Tip: avoid extra pen marks; shade bubbles cleanly.</div>
+        </div>
+
+        <div class="field">
+          <label>Student PDFs (each file = 1 student, 2 pages)</label>
+          <div class="row">
+            <button id="btnLoadStudentsFromManifest" class="ghost">Load list from manifest</button>
+            <input id="fileStudents" type="file" accept="application/pdf" multiple />
+          </div>
+          <div class="hint">For GitHub Pages batching: put PDFs in <code>data/students/</code> and list them in <code>data/manifest.json</code>.</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <label class="switch">
+          <input id="chkRebuildLayout" type="checkbox" checked />
+          <span>Rebuild layout from template (recommended first run)</span>
+        </label>
+        <label class="switch">
+          <input id="chkAnnotated" type="checkbox" checked />
+          <span>Generate annotated PDF</span>
+        </label>
+      </div>
+
+      <div class="row">
+        <button id="btnRun" class="primary" disabled>Run marking</button>
+        <button id="btnReset" class="ghost">Reset</button>
+      </div>
+
+      <div class="small">
+        <p><strong>Privacy:</strong> This runs entirely in your browser. PDFs are processed on your device.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2) Progress</h2>
+      <div class="progress"><div id="bar" class="bar"></div></div>
+      <pre id="log" class="log" aria-live="polite"></pre>
+    </section>
+
+    <section class="card">
+      <h2>3) Outputs</h2>
+      <div class="row">
+        <button id="btnDownloadCSV" class="ghost" disabled>Download results.csv</button>
+        <button id="btnDownloadAnnotated" class="ghost" disabled>Download annotated.pdf</button>
+      </div>
+      <div class="hint">CSV has exactly 2 columns: <code>student_number</code>, <code>score</code> (out of 45).</div>
+
+      <details class="details">
+        <summary>Preview (first 10 rows)</summary>
+        <div class="tableWrap"><table id="preview" class="table"></table></div>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Notes</h2>
+      <ul class="ul">
+        <li>Best scan setting: ~300 dpi, minimal shadow, no cropping.</li>
+        <li>If a student number is unclear, it may output <code>UNKNOWN</code>.</li>
+        <li>Q41–45 are read from the top of the first column on page 2.</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- pdf.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.js" crossorigin="anonymous"></script>
+  <!-- pdf-lib (create annotated PDF) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js" crossorigin="anonymous"></script>
+  <!-- opencv.js -->
+  <script async src="https://docs.opencv.org/4.x/opencv.js"></script>
+
+  <script src="app.js"></script>
+</body>
+</html>

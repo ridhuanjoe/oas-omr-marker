@@ -1,0 +1,2 @@
+Add your teacher key PDF as data/key.pdf (2 pages).
+Then update data/manifest.json if needed.
