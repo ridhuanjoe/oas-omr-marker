@@ -1,9 +1,5 @@
 {
   "template": "data/template.pdf",
   "key": "data/key.pdf",
-  "students_folder": "data/students/",
-  "students": [
-    "data/students/student_001.pdf",
-    "data/students/student_002.pdf"
-  ]
+  "students": []
 }
