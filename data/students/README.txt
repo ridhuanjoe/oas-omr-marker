@@ -1,2 +1,3 @@
-Put each student's 2-page PDF in this folder, then list the filenames in data/manifest.json.
-Example: data/students/student_001.pdf
+Optional: If you choose the manifest workflow, put student PDFs here and list them in data/manifest.json.
+Privacy note: On public GitHub Pages, anything committed here is public.
+Recommended: keep this folder empty and upload student PDFs at runtime.
