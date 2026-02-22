@@ -9,7 +9,6 @@
   --radius:18px;
   --shadow: 0 12px 30px rgba(0,0,0,.35);
 }
-
 *{box-sizing:border-box}
 body{
   margin:0;
@@ -19,7 +18,6 @@ body{
               var(--bg);
   color:var(--text);
 }
-
 .top{
   max-width: 1100px;
   margin: 0 auto;
@@ -49,7 +47,6 @@ body{
   font-weight: 700;
   font-size: 13px;
 }
-
 .wrap{
   max-width: 1100px;
   margin: 0 auto;
@@ -58,7 +55,6 @@ body{
   flex-direction:column;
   gap: 14px;
 }
-
 .card{
   background: rgba(17,24,35,.92);
   border: 1px solid rgba(255,255,255,.08);
@@ -66,7 +62,6 @@ body{
   box-shadow: var(--shadow);
   padding: 16px;
 }
-
 h2{margin:0 0 10px; font-size: 18px}
 .grid{
   display:grid;
@@ -87,7 +82,6 @@ h2{margin:0 0 10px; font-size: 18px}
   flex-wrap: wrap;
   align-items:center;
 }
-
 input[type="file"]{
   width: 100%;
   padding: 10px;
@@ -96,7 +90,6 @@ input[type="file"]{
   background: rgba(0,0,0,.20);
   color: var(--muted);
 }
-
 button{
   border: none;
   border-radius: 16px;
@@ -117,10 +110,8 @@ button:disabled{opacity:.55; cursor:not-allowed;}
   background: transparent;
   border: 1px solid rgba(255,255,255,.14);
 }
-
 .hint{ color: var(--muted); font-size: 12px; margin-top: 8px; line-height:1.35;}
 .small{ color: var(--muted); font-size: 13px; line-height:1.4; margin-top: 10px;}
-
 .switch{
   display:flex;
   align-items:center;
@@ -132,7 +123,6 @@ button:disabled{opacity:.55; cursor:not-allowed;}
   user-select:none;
 }
 .switch input{ width: 18px; height: 18px; }
-
 .progress{
   height: 10px;
   border-radius: 999px;
@@ -145,7 +135,6 @@ button:disabled{opacity:.55; cursor:not-allowed;}
   width:0%;
   background: linear-gradient(90deg, var(--accent), var(--accent2));
 }
-
 .log{
   margin: 10px 0 0;
   background: rgba(0,0,0,.20);
@@ -158,7 +147,6 @@ button:disabled{opacity:.55; cursor:not-allowed;}
   max-height: 240px;
   overflow:auto;
 }
-
 .details{
   background: rgba(0,0,0,.16);
   border: 1px solid rgba(255,255,255,.08);
@@ -176,6 +164,5 @@ button:disabled{opacity:.55; cursor:not-allowed;}
   white-space: nowrap;
 }
 .table th{ color: var(--muted); font-weight: 900; background: rgba(0,0,0,.16); }
-
 .ul{color:var(--muted); line-height:1.55; margin: 0 0 0 18px;}
 code{color: rgba(110,231,255,.95)}
